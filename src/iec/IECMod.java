@@ -18,10 +18,10 @@ public class IECMod extends Mod{
             //show dialog upon startup
             Time.runTask(10f, () -> {
                 BaseDialog dialog = new BaseDialog("frog");
-                dialog.cont.add("behold").row();
+                dialog.cont.add("Я пидорас.").row();
                 //mod sprites are prefixed with the mod name (this mod is called 'example-java-mod' in its config)
                 dialog.cont.image(Core.atlas.find("iec-frog")).pad(20f).row();
-                dialog.cont.button("I see", dialog::hide).size(100f, 50f);
+                dialog.cont.button("Я вижу.", dialog::hide).size(100f, 50f);
                 dialog.show();
             });
         });
@@ -30,7 +30,7 @@ public class IECMod extends Mod{
     @Override
     public void loadContent(){
         IECBlocks.load();
-        Log.info("Loading some example content.");
+        Log.info("Loading content.");
     }
 
 }

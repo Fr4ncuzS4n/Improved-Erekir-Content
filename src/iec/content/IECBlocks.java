@@ -18,6 +18,7 @@ import static mindustry.type.ItemStack.*;
 
 public class IECBlocks{
     public static Block
+            //Production - Erekir
             destroyerCliff, berylliumDrill, hydrolyzer, ozonelyzer;
 
     public static void load() {
@@ -110,6 +111,26 @@ public class IECBlocks{
 
             ambientSound = Sounds.electricHum;
             ambientSoundVolume = 0.08f;
+
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
+                    new DrawLiquidTile(Liquids.water, 2f),
+                    new DrawBubbles(Color.valueOf("7693e3")){{
+                        sides = 10;
+                        recurrence = 3f;
+                        spread = 6;
+                        radius = 1.5f;
+                        amount = 20;
+                    }},
+                    new DrawRegion(),
+                    new DrawLiquidOutputs(),
+                    new DrawGlowRegion(){{
+                        alpha = 1.4f;
+                        color = Color.valueOf("c4bdf3");
+                        glowIntensity = 0.6f;
+                        glowScale = 8f;
+                    }}
+            );
 
             regionRotated1 = 2;
             outputLiquids = LiquidStack.with(Liquids.ozone, 0.2f);
