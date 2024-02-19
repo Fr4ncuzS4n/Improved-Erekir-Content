@@ -2,6 +2,7 @@ package iec;
 
 import arc.*;
 import arc.util.*;
+import iec.content.*;
 import mindustry.*;
 import mindustry.content.*;
 import mindustry.game.EventType.*;
@@ -28,6 +29,7 @@ public class IECMod extends Mod{
 
     @Override
     public void loadContent(){
+        IECBlocks.load();
         Log.info("Loading some example content.");
     }
 
