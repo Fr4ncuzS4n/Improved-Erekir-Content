@@ -41,6 +41,7 @@ public class IECBlocks{
             consumePower(1f);
             consumeLiquid(Liquids.water, 5f / 60f);
 
+            size = 3;
             drillTime = 210;
             itemCapacity = 20;
             liquidCapacity = 10;
