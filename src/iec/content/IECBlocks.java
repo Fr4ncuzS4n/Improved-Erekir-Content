@@ -1,5 +1,6 @@
 package iec.content;
 
+import arc.graphics.Color;
 import mindustry.content.Fx;
 import mindustry.content.Items;
 import mindustry.content.Liquids;
@@ -9,6 +10,7 @@ import mindustry.graphics.Pal;
 import mindustry.type.*;
 import mindustry.world.Block;
 import mindustry.world.blocks.production.*;
+import mindustry.world.draw.*;
 import mindustry.world.meta.*;
 
 import static mindustry.type.ItemStack.*;
@@ -66,6 +68,26 @@ public class IECBlocks{
 
             ambientSound = Sounds.electricHum;
             ambientSoundVolume = 0.08f;
+
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
+                    new DrawLiquidTile(Liquids.water, 2f),
+                    new DrawBubbles(Color.valueOf("7693e3")){{
+                        sides = 10;
+                        recurrence = 3f;
+                        spread = 6;
+                        radius = 1.5f;
+                        amount = 20;
+                    }},
+                    new DrawRegion(),
+                    new DrawLiquidOutputs(),
+                    new DrawGlowRegion(){{
+                        alpha = 0.7f;
+                        color = Color.valueOf("c4bdf3");
+                        glowIntensity = 0.3f;
+                        glowScale = 6f;
+                    }}
+            );
 
             regionRotated1 = 3;
             outputLiquids = LiquidStack.with(Liquids.hydrogen, 10f / 60f);
