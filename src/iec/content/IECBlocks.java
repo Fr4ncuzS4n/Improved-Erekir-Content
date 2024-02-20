@@ -166,7 +166,7 @@ public class IECBlocks{
             ambientSoundVolume = 0.06f;
             hasLiquids = true;
             boostScale = 1f / 9f;
-            outputLiquid = new LiquidStack(Liquids.water, 30f / 60f);
+            outputLiquid = new LiquidStack(Liquids.ozone, 30f / 60f);
             consumePower(0.5f);
             liquidCapacity = 60f;
         }};
