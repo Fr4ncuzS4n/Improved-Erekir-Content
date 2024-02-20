@@ -1,7 +1,6 @@
 package iec.content;
 
 import arc.graphics.Color;
-import iec.content.world.IECAttribute;
 import mindustry.content.Fx;
 import mindustry.content.Items;
 import mindustry.content.Liquids;
@@ -29,11 +28,11 @@ public class IECBlocks{
     public static void load() {
 
         hydroVent = new SteamVent("hydro-vent"){{
-            attributes.set(IECAttribute.hydrogen, 1f);
+            attributes.set(Attribute.add("hydrogen"), 1f);
         }};
 
         ozoneVent = new SteamVent("ozone-vent"){{
-            attributes.set(IECAttribute.ozone, 1f);
+            attributes.set(Attribute.add("ozone"), 1f);
         }};
 
         destroyerCliff = new WallCrafter("destroyer-cliff") {{
