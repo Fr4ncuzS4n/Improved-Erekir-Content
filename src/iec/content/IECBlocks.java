@@ -128,7 +128,7 @@ public class IECBlocks{
                     new DrawGlowRegion(){{
                         alpha = 1.4f;
                         color = Color.valueOf("c4bdf3");
-                        glowIntensity = 0.5f;
+                        glowIntensity = 0.6f;
                         glowScale = 8f;
                     }}
             );
