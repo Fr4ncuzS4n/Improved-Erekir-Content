@@ -33,7 +33,7 @@ public class IECBlocks{
         }};
 
         ozoneVent = new SteamVent("ozone-vent"){{
-            attributes.set(IECAttribute.ozone, 1f):
+            attributes.set(IECAttribute.ozone, 1f);
         }};
 
         destroyerCliff = new WallCrafter("destroyer-cliff") {{
@@ -147,8 +147,8 @@ public class IECBlocks{
                     }}
             );
 
-            regionRotated1 = 2;
-            outputLiquids = LiquidStack.with(Liquids.ozone, 0.2f);
+            regionRotated1 = 3;
+            outputLiquids = LiquidStack.with(Liquids.ozone, 10f / 60f);
             liquidOutputDirections = new int[]{1};
         }};
     }
