@@ -20,7 +20,7 @@ import static mindustry.type.ItemStack.*;
 public class IECBlocks{
     public static Block
             //Production - Erekir
-            destroyerCliff, berylliumDrill, hydrolyzer, ozonelyzer,
+            destroyerCliff, berylliumDrill, hydrolyzer, ozonelyzer, ozoneVentCondenser,
 
             //Floor – Attributes
             hydroVent, ozoneVent;
@@ -111,7 +111,7 @@ public class IECBlocks{
 
 
         ozonelyzer = new GenericCrafter("ozonelyzer"){{
-            requirements(Category.crafting, with(Items.silicon, 80, Items.graphite, 60, Items.beryllium, 150, Items.tungsten, 140));
+            requirements(Category.crafting, BuildVisibility.sandboxOnly, with(Items.silicon, 80, Items.graphite, 60, Items.beryllium, 150, Items.tungsten, 140));
             consumePower(1f);
             consumeLiquid(Liquids.water, 10f / 60f);
 
@@ -149,6 +149,26 @@ public class IECBlocks{
             regionRotated1 = 3;
             outputLiquids = LiquidStack.with(Liquids.ozone, 10f / 60f);
             liquidOutputDirections = new int[]{1};
+        }};
+
+        ozoneVentCondenser = new AttributeCrafter("ozone-vent-condenser"){{
+            requirements(Category.production, with(Items.beryllium, 145));
+            attribute = Attribute.get("ozone");
+            group = BlockGroup.liquids;
+            minEfficiency = 9f - 0.0001f;
+            baseEfficiency = 0f;
+            displayEfficiency = false;
+            craftEffect = Fx.turbinegenerate;
+            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawBlurSpin("-rotator", 6f), new DrawRegion("-mid"), new DrawLiquidTile(Liquids.water, 38f / 4f), new DrawDefault());
+            craftTime = 120f;
+            size = 3;
+            ambientSound = Sounds.hum;
+            ambientSoundVolume = 0.06f;
+            hasLiquids = true;
+            boostScale = 1f / 9f;
+            outputLiquid = new LiquidStack(Liquids.water, 30f / 60f);
+            consumePower(0.5f);
+            liquidCapacity = 60f;
         }};
     }
 }
