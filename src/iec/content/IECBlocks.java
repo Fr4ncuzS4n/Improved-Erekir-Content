@@ -1,6 +1,7 @@
 package iec.content;
 
 import arc.graphics.Color;
+import iec.content.world.IECAttribute;
 import mindustry.content.Fx;
 import mindustry.content.Items;
 import mindustry.content.Liquids;
@@ -9,6 +10,7 @@ import mindustry.gen.*;
 import mindustry.graphics.Pal;
 import mindustry.type.*;
 import mindustry.world.Block;
+import mindustry.world.blocks.environment.SteamVent;
 import mindustry.world.blocks.production.*;
 import mindustry.world.draw.*;
 import mindustry.world.meta.*;
@@ -19,9 +21,21 @@ import static mindustry.type.ItemStack.*;
 public class IECBlocks{
     public static Block
             //Production - Erekir
-            destroyerCliff, berylliumDrill, hydrolyzer, ozonelyzer;
+            destroyerCliff, berylliumDrill, hydrolyzer, ozonelyzer,
+
+            //Floor – Attributes
+            hydroVent, ozoneVent;
 
     public static void load() {
+
+        hydroVent = new SteamVent("hydro-vent"){{
+            attributes.set(IECAttribute.hydrogen, 1f);
+        }};
+
+        ozoneVent = new SteamVent("ozone-vent"){{
+            attributes.set(IECAttribute.ozone, 1f):
+        }};
+
         destroyerCliff = new WallCrafter("destroyer-cliff") {{
             requirements(Category.production, with(Items.graphite, 60, Items.beryllium, 75, Items.silicon, 60));
             consumePower(8f);
