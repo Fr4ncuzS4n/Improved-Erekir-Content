@@ -20,7 +20,7 @@ import static mindustry.type.ItemStack.*;
 public class IECBlocks{
     public static Block
             //Production - Erekir
-            destroyerCliff, berylliumDrill, hydrolyzer, ozonelyzer, ozoneVentCondenser,
+            destroyerCliff, berylliumDrill, hydrolyzer, ozonelyzer, ozoneVentCondenser, hydrogenVentCondenser,
 
             //Floor – Attributes
             hydroVent, ozoneVent;
@@ -105,7 +105,7 @@ public class IECBlocks{
             );
 
             regionRotated1 = 3;
-            outputLiquids = LiquidStack.with(Liquids.hydrogen, 10f / 60f);
+            outputLiquids = LiquidStack.with(Liquids.hydrogen, 12f / 60f);
             liquidOutputDirections = new int[]{1};
         }};
 
@@ -147,7 +147,7 @@ public class IECBlocks{
             );
 
             regionRotated1 = 3;
-            outputLiquids = LiquidStack.with(Liquids.ozone, 10f / 60f);
+            outputLiquids = LiquidStack.with(Liquids.ozone, 8f / 60f);
             liquidOutputDirections = new int[]{1};
         }};
 
@@ -159,15 +159,47 @@ public class IECBlocks{
             baseEfficiency = 0f;
             displayEfficiency = false;
             craftEffect = Fx.turbinegenerate;
-            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawBlurSpin("-rotator", 6f), new DrawRegion("-mid"), new DrawLiquidTile(Liquids.water, 38f / 4f), new DrawDefault());
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
+                    new DrawBlurSpin("-rotator", 6f),
+                    new DrawRegion("-mid"),
+                    new DrawLiquidTile(Liquids.ozone, 38f / 4f),
+                    new DrawDefault()
+            );
             craftTime = 120f;
             size = 3;
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
             hasLiquids = true;
             boostScale = 1f / 9f;
-            outputLiquid = new LiquidStack(Liquids.ozone, 30f / 60f);
-            consumePower(0.5f);
+            outputLiquid = new LiquidStack(Liquids.ozone, 16f / 60f);
+            consumePower(70f / 60f);
+            liquidCapacity = 60f;
+        }};
+
+        hydrogenVentCondenser = new AttributeCrafter("hydrogen-vent-condenser"){{
+            requirements(Category.production, with(Items.beryllium, 145));
+            attribute = Attribute.get("hydrogen");
+            group = BlockGroup.liquids;
+            minEfficiency = 9f - 0.0001f;
+            baseEfficiency = 0f;
+            displayEfficiency = false;
+            craftEffect = Fx.turbinegenerate;
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
+                    new DrawBlurSpin("-rotator", 6f),
+                    new DrawRegion("-mid"),
+                    new DrawLiquidTile(Liquids.hydrogen, 38f / 4f),
+                    new DrawDefault()
+            );
+            craftTime = 120f;
+            size = 3;
+            ambientSound = Sounds.hum;
+            ambientSoundVolume = 0.06f;
+            hasLiquids = true;
+            boostScale = 1f / 9f;
+            outputLiquid = new LiquidStack(Liquids.hydrogen, 24f / 60f);
+            consumePower(80f / 60f);
             liquidCapacity = 60f;
         }};
     }
