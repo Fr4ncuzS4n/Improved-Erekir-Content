@@ -40,7 +40,7 @@ public class IECBlocks{
             consumePower(8f);
             consumeLiquid(Liquids.hydrogen, 0.01f);
 
-            drillTime = 115f;
+            drillTime = 75f;
             size = 3;
             attribute = Attribute.sand;
             output = Items.sand;
@@ -55,7 +55,7 @@ public class IECBlocks{
             consumeLiquid(Liquids.water, 5f / 60f);
             consumeLiquid(Liquids.hydrogen, 1.2f / 60).boost();
 
-            liquidBoostIntensity = 1.4f;
+
             size = 3;
             drillTime = 210;
             itemCapacity = 20;
