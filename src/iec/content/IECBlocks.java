@@ -53,7 +53,9 @@ public class IECBlocks{
             requirements(Category.production, with(Items.beryllium, 50));
             consumePower(1f);
             consumeLiquid(Liquids.water, 5f / 60f);
+            consumeLiquid(Liquids.hydrogen, 1.2f / 60).boost();
 
+            liquidBoostIntensity = 1.4f;
             size = 3;
             drillTime = 210;
             itemCapacity = 20;
@@ -63,9 +65,10 @@ public class IECBlocks{
             arrows = 1;
             squareSprite = false;
             researchCostMultiplier = 1.5f;
-            drillEffect = new MultiEffect(Fx.mineImpact,Fx.drillSteam, Fx.mineImpactWave.wrap(Pal.berylShot, 30f));
-
-
+            drillEffect = new MultiEffect(
+                    Fx.mineImpact,
+                    Fx.drillSteam,
+                    Fx.mineImpactWave.wrap(Pal.berylShot, 30f));
         }};
 
         hydrolyzer = new GenericCrafter("hydrolyzer"){{
