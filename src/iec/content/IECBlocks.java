@@ -21,7 +21,7 @@ import static mindustry.type.ItemStack.*;
 public class IECBlocks{
     public static Block
             //Production - Erekir
-            destroyerCliff, berylliumDrill, hydrolyzer, ozonelyzer, ozoneVentCondenser, hydrogenVentCondenser, heatGenerator,
+            destroyerCliff, berylliumDrill, hydrolyzer, ozonelyzer, ozoneVentCondenser, hydrogenVentCondenser, heaterGenerator,
 
             //Floor – Attributes
             hydroVent, ozoneVent;
@@ -205,11 +205,11 @@ public class IECBlocks{
             liquidCapacity = 60f;
         }};
 
-        heatGenerator = new IECHeaterGenerator("test-block"){{
-            requirements(Category.power, with(Items.beryllium, 120));
+        heaterGenerator = new IECHeaterGenerator("test-block"){{
+            requirements(Category.power, BuildVisibility.sandboxOnly, with(Items.beryllium, 120));
             powerProduction = 50f;
             maxHeat = 100f;
-            size = 4;
+            size = 5;
         }};
     }
 }
