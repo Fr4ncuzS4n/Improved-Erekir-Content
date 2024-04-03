@@ -27,6 +27,7 @@ public class IECMod extends Mod{
     @Override
     public void loadContent(){
         IECBlocks.load();
+        IECTechTree.load();
         Log.info("Loading content.");
     }
 
