@@ -1,6 +1,7 @@
 package iec.content;
 
 import arc.graphics.Color;
+import iec.world.power.IECHeaterGenerator;
 import mindustry.content.Fx;
 import mindustry.content.Items;
 import mindustry.content.Liquids;
@@ -20,7 +21,7 @@ import static mindustry.type.ItemStack.*;
 public class IECBlocks{
     public static Block
             //Production - Erekir
-            destroyerCliff, berylliumDrill, hydrolyzer, ozonelyzer, ozoneVentCondenser, hydrogenVentCondenser,
+            destroyerCliff, berylliumDrill, hydrolyzer, ozonelyzer, ozoneVentCondenser, hydrogenVentCondenser, heatGenerator,
 
             //Floor – Attributes
             hydroVent, ozoneVent;
@@ -53,8 +54,6 @@ public class IECBlocks{
             requirements(Category.production, with(Items.beryllium, 50));
             consumePower(1f);
             consumeLiquid(Liquids.water, 5f / 60f);
-            consumeLiquid(Liquids.hydrogen, 1.2f / 60).boost();
-
 
             size = 3;
             drillTime = 210;
@@ -204,6 +203,13 @@ public class IECBlocks{
             outputLiquid = new LiquidStack(Liquids.hydrogen, 24f / 60f);
             consumePower(80f / 60f);
             liquidCapacity = 60f;
+        }};
+
+        heatGenerator = new IECHeaterGenerator("test-block"){{
+            requirements(Category.power, with(Items.beryllium, 120));
+            powerProduction = 50f;
+            maxHeat = 100f;
+            size = 4;
         }};
     }
 }
