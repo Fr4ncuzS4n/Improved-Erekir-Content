@@ -1,20 +1,14 @@
 package iec.world.power;
 
 import arc.Core;
-import arc.graphics.Blending;
-import arc.graphics.g2d.Draw;
 import arc.math.Mathf;
 import arc.util.Time;
 import arc.util.io.Reads;
 import arc.util.io.Writes;
-import mindustry.graphics.Layer;
 import mindustry.graphics.Pal;
 import mindustry.ui.Bar;
 import mindustry.world.blocks.heat.HeatConsumer;
 import mindustry.world.blocks.power.VariableReactor;
-import mindustry.world.meta.Stat;
-
-import static mindustry.Vars.state;
 
 public class IECHeaterGenerator extends VariableReactor {
     public IECHeaterGenerator(String name){
@@ -37,7 +31,7 @@ public class IECHeaterGenerator extends VariableReactor {
 
     public class IECHeaterGeneratorBuild extends VariableReactorBuild implements HeatConsumer{
         public float[] sideHeat = new float[4];
-        public float heat = 0f, totalProgress, warmup, flash;
+        public float heat = 0f, totalProgress, warmup;
 
         @Override
         public void updateTile(){
@@ -75,10 +69,6 @@ public class IECHeaterGenerator extends VariableReactor {
 
             //target efficiency value
             float target = Mathf.clamp(heat / maxHeat);
-
-            //fraction of coolant provided (from what is needed)
-            float efficiencyMet = Mathf.clamp(Mathf.zero(target) ? 1f : efficiency / target);
-            boolean met = efficiencyMet >= 0.99999f;
 
             //now scale efficiency by target, so it consumes less depending on heat
             efficiency *= target;
