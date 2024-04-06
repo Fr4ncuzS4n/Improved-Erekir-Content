@@ -13,13 +13,11 @@ import static mindustry.content.TechTree.*;
 
 
 public class IECTechTree{
-    private static TechNode context = null;
+    public static TechNode context = null;
 
     public static void load(){
             vanillaNode(plasmaBore, () -> {
-                node(berylliumDrill, Seq.with(new OnSector(basin)), () -> {
-
-                });
+                node(berylliumDrill, Seq.with(new OnSector(basin)));
             });
 
             /*vanillaNode(ventCondenser, Seq.with(new Objectives.OnSector(aegis)), () -> {
@@ -31,15 +29,12 @@ public class IECTechTree{
             });*/
 
             vanillaNode(cliffCrusher, () -> {
-                node(destroyerCliff, Seq.with(new OnSector(stronghold)), () -> {
-
-                });
+                node(destroyerCliff, Seq.with(new OnSector(stronghold)));
             });
 
             vanillaNode(electrolyzer, () -> {
                 node(hydrolyzer, Seq.with(new OnSector(basin)), () -> {
-                    node(ozonelyzer, () -> {
-                    });
+                    node(ozonelyzer);
                 });
             });
     }
