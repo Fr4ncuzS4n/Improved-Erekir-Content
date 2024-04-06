@@ -1,6 +1,5 @@
 package iec.content;
 
-import arc.struct.ObjectFloatMap;
 import arc.struct.Seq;
 import mindustry.content.*;
 import mindustry.ctype.*;
@@ -8,24 +7,15 @@ import mindustry.game.Objectives.*;
 import mindustry.type.*;
 
 import static iec.content.IECBlocks.*;
-import static mindustry.Vars.content;
 import static mindustry.content.Blocks.*;
 import static mindustry.content.SectorPresets.*;
 import static mindustry.content.TechTree.*;
 
+
 public class IECTechTree{
-    static TechTree.TechNode context = null;
+    private static TechNode context = null;
 
     public static void load(){
-
-        Seq<Objective> erekirSector = Seq.with(new OnPlanet(Planets.erekir));
-
-        var costMultipliers = new ObjectFloatMap<Item>();
-        for(var item : content.items()) costMultipliers.put(item, 0.9f);
-
-        Planets.erekir.techTree = nodeRoot("erekir", coreBastion, true, () -> {
-            context().researchCostMultipliers = costMultipliers;
-
             vanillaNode(plasmaBore, () -> {
                 node(berylliumDrill, Seq.with(new OnSector(basin)), () -> {
 
@@ -52,7 +42,6 @@ public class IECTechTree{
                     });
                 });
             });
-        });
     }
     private static void vanillaNode(UnlockableContent parent, Runnable children) {
         context = TechTree.all.find(t -> t.content == parent);
