@@ -38,7 +38,7 @@ public class IECBlocks{
 
         destroyerCliff = new WallCrafter("destroyer-cliff") {{
             requirements(Category.production, with(Items.graphite, 60, Items.beryllium, 75, Items.silicon, 60));
-            consumePower(8f);
+            consumePower(34f / 60f);
             consumeLiquid(Liquids.hydrogen, 0.01f);
 
             drillTime = 75f;
@@ -52,7 +52,7 @@ public class IECBlocks{
 
         berylliumDrill = new BurstDrill("beryllium-drill") {{
             requirements(Category.production, with(Items.beryllium, 50));
-            consumePower(1f);
+            consumePower(40f / 60f);
             consumeLiquid(Liquids.water, 5f / 60f);
 
             size = 3;
