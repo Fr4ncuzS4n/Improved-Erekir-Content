@@ -65,9 +65,9 @@ public class IECBlocks{
             squareSprite = false;
             researchCostMultiplier = 1.5f;
             drillEffect = new MultiEffect(
-                    Fx.mineImpact,
-                    Fx.drillSteam,
-                    Fx.mineImpactWave.wrap(Pal.berylShot, 30f));
+                Fx.mineImpact,
+                Fx.drillSteam,
+                Fx.mineImpactWave.wrap(Pal.berylShot, 30f));
         }};
 
         hydrolyzer = new GenericCrafter("hydrolyzer"){{
@@ -87,23 +87,23 @@ public class IECBlocks{
             ambientSoundVolume = 0.08f;
 
             drawer = new DrawMulti(
-                    new DrawRegion("-bottom"),
-                    new DrawLiquidTile(Liquids.water, 2f),
-                    new DrawBubbles(Color.valueOf("7693e3")){{
-                        sides = 10;
-                        recurrence = 3f;
-                        spread = 6;
-                        radius = 1.5f;
-                        amount = 20;
-                    }},
-                    new DrawRegion(),
-                    new DrawLiquidOutputs(),
-                    new DrawGlowRegion(){{
-                        alpha = 1.4f;
-                        color = Color.valueOf("c4bdf3");
-                        glowIntensity = 0.6f;
-                        glowScale = 8f;
-                    }}
+                new DrawRegion("-bottom"),
+                new DrawLiquidTile(Liquids.water, 2f),
+                new DrawBubbles(Color.valueOf("7693e3")){{
+                    sides = 10;
+                    recurrence = 3f;
+                    spread = 6;
+                    radius = 1.5f;
+                    amount = 20;
+                }},
+                new DrawRegion(),
+                new DrawLiquidOutputs(),
+                new DrawGlowRegion(){{
+                    alpha = 1.4f;
+                    color = Color.valueOf("c4bdf3");
+                    glowIntensity = 0.6f;
+                    glowScale = 8f;
+                }}
             );
 
             regionRotated1 = 3;
@@ -129,23 +129,23 @@ public class IECBlocks{
             ambientSoundVolume = 0.08f;
 
             drawer = new DrawMulti(
-                    new DrawRegion("-bottom"),
-                    new DrawLiquidTile(Liquids.water, 2f),
-                    new DrawBubbles(Color.valueOf("7693e3")){{
-                        sides = 10;
-                        recurrence = 3f;
-                        spread = 6;
-                        radius = 1.5f;
-                        amount = 20;
-                    }},
-                    new DrawRegion(),
-                    new DrawLiquidOutputs(),
-                    new DrawGlowRegion(){{
-                        alpha = 1.4f;
-                        color = Color.valueOf("c4bdf3");
-                        glowIntensity = 0.6f;
-                        glowScale = 8f;
-                    }}
+                new DrawRegion("-bottom"),
+                new DrawLiquidTile(Liquids.water, 2f),
+                new DrawBubbles(Color.valueOf("7693e3")){{
+                    sides = 10;
+                    recurrence = 3f;
+                    spread = 6;
+                    radius = 1.5f;
+                    amount = 20;
+                }},
+                new DrawRegion(),
+                new DrawLiquidOutputs(),
+                new DrawGlowRegion(){{
+                    alpha = 1.4f;
+                    color = Color.valueOf("c4bdf3");
+                    glowIntensity = 0.6f;
+                    glowScale = 8f;
+                }}
             );
 
             regionRotated1 = 3;
@@ -162,11 +162,11 @@ public class IECBlocks{
             displayEfficiency = false;
             craftEffect = Fx.turbinegenerate;
             drawer = new DrawMulti(
-                    new DrawRegion("-bottom"),
-                    new DrawBlurSpin("-rotator", 6f),
-                    new DrawRegion("-mid"),
-                    new DrawLiquidTile(Liquids.ozone, 38f / 4f),
-                    new DrawDefault()
+                new DrawRegion("-bottom"),
+                new DrawBlurSpin("-rotator", 6f),
+                new DrawRegion("-mid"),
+                new DrawLiquidTile(Liquids.ozone, 38f / 4f),
+                new DrawDefault()
             );
             craftTime = 120f;
             size = 3;
@@ -188,11 +188,11 @@ public class IECBlocks{
             displayEfficiency = false;
             craftEffect = Fx.turbinegenerate;
             drawer = new DrawMulti(
-                    new DrawRegion("-bottom"),
-                    new DrawBlurSpin("-rotator", 6f),
-                    new DrawRegion("-mid"),
-                    new DrawLiquidTile(Liquids.hydrogen, 38f / 4f),
-                    new DrawDefault()
+                new DrawRegion("-bottom"),
+                new DrawBlurSpin("-rotator", 6f),
+                new DrawRegion("-mid"),
+                new DrawLiquidTile(Liquids.hydrogen, 38f / 4f),
+                new DrawDefault()
             );
             craftTime = 120f;
             size = 3;
@@ -205,7 +205,7 @@ public class IECBlocks{
             liquidCapacity = 60f;
         }};
 
-        heaterGenerator = new IECHeaterGenerator("test-block"){{
+        heaterGenerator = new IECHeaterGenerator("heater-generator"){{
             requirements(Category.power, BuildVisibility.sandboxOnly, with(Items.beryllium, 120));
             powerProduction = 50f;
             maxHeat = 100f;

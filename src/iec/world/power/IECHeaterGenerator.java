@@ -20,10 +20,12 @@ public class IECHeaterGenerator extends VariableReactor {
         removeBar("instability");
 
         addBar("heat", (IECHeaterGeneratorBuild entity) ->
-                new Bar(() ->
-                        Core.bundle.format("bar.heatpercent", (int)entity.heat, (int)(Mathf.clamp(entity.heat / maxHeat) * 100)),
-                        () -> Pal.lightOrange,
-                        () -> entity.heat / maxHeat));
+            new Bar(() ->
+                Core.bundle.format("bar.heatpercent", (int)entity.heat, (int)(Mathf.clamp(entity.heat / maxHeat) * 100)),
+                () -> Pal.lightOrange,
+                () -> entity.heat / maxHeat
+            )
+        );
     }
 
     public class IECHeaterGeneratorBuild extends VariableReactorBuild implements HeatConsumer{ }
