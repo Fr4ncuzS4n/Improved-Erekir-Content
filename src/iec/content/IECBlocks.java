@@ -206,7 +206,7 @@ public class IECBlocks{
         }};
 
         heaterGenerator = new IECHeaterGenerator("heater-generator"){{
-            requirements(Category.power, BuildVisibility.sandboxOnly, with(Items.beryllium, 120));
+            requirements(Category.power, BuildVisibility.shown, with(Items.beryllium, 120));
             powerProduction = 50f;
             maxHeat = 100f;
             size = 5;
