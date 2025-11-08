@@ -1,10 +1,9 @@
 package iec.content;
 
 import arc.graphics.Color;
-import iec.world.power.IECHeaterGenerator;
-import mindustry.content.Fx;
-import mindustry.content.Items;
-import mindustry.content.Liquids;
+import arc.struct.Seq;
+import iec.world.block.power.IECHeaterGenerator;
+import mindustry.content.*;
 import mindustry.entities.effect.MultiEffect;
 import mindustry.gen.*;
 import mindustry.graphics.Pal;
@@ -12,8 +11,11 @@ import mindustry.type.*;
 import mindustry.world.Block;
 import mindustry.world.blocks.environment.SteamVent;
 import mindustry.world.blocks.production.*;
+import mindustry.world.blocks.units.Reconstructor;
 import mindustry.world.draw.*;
-import mindustry.world.meta.*;
+import mindustry.world.meta.Attribute;
+import mindustry.world.meta.BuildVisibility;
+import mindustry.world.meta.BlockGroup;
 
 import static mindustry.type.ItemStack.*;
 
@@ -155,7 +157,7 @@ public class IECBlocks{
 
         ozoneVentCondenser = new AttributeCrafter("ozone-vent-condenser"){{
             requirements(Category.production, with(Items.beryllium, 145));
-            attribute = Attribute.get("ozone");
+            attribute = Attribute.steam;
             group = BlockGroup.liquids;
             minEfficiency = 9f - 0.0001f;
             baseEfficiency = 0f;
@@ -174,14 +176,15 @@ public class IECBlocks{
             ambientSoundVolume = 0.06f;
             hasLiquids = true;
             boostScale = 1f / 9f;
-            outputLiquid = new LiquidStack(Liquids.ozone, 16f / 60f);
+
+            outputLiquid = new LiquidStack(Liquids.ozone, 24f / 60f);
             consumePower(70f / 60f);
             liquidCapacity = 60f;
         }};
 
         hydrogenVentCondenser = new AttributeCrafter("hydrogen-vent-condenser"){{
             requirements(Category.production, with(Items.beryllium, 145));
-            attribute = Attribute.get("hydrogen");
+            attribute = Attribute.steam;
             group = BlockGroup.liquids;
             minEfficiency = 9f - 0.0001f;
             baseEfficiency = 0f;
@@ -200,7 +203,7 @@ public class IECBlocks{
             ambientSoundVolume = 0.06f;
             hasLiquids = true;
             boostScale = 1f / 9f;
-            outputLiquid = new LiquidStack(Liquids.hydrogen, 24f / 60f);
+            outputLiquid = new LiquidStack(Liquids.hydrogen, 32f / 60f);
             consumePower(80f / 60f);
             liquidCapacity = 60f;
         }};
@@ -210,6 +213,26 @@ public class IECBlocks{
             powerProduction = 50f;
             maxHeat = 100f;
             size = 5;
+        }};
+
+        Blocks.shipRefabricator = new Reconstructor("ship-fabricator"){{
+            requirements(Category.units, with(Items.beryllium, 250, Items.tungsten, 120, Items.silicon, 150, Items.oxide, 15));
+            regionSuffix = "-dark";
+
+            size = 3;
+            consumePower(2.5f);
+            consumeLiquid(Liquids.hydrogen, 3f / 60f);
+            consumeItems(with(Items.silicon, 60, Items.tungsten, 40));
+
+            constructTime = 60f * 50f;
+
+            // IT WORKS!!
+            upgrades = Seq.with(
+                    new UnitType[]{UnitTypes.elude, UnitTypes.avert},
+                    new UnitType[]{UnitTypes.stell, UnitTypes.avert}
+            );
+
+            researchCost = with(Items.beryllium, 500, Items.tungsten, 200, Items.silicon, 300, Items.oxide, 80);
         }};
     }
 }
