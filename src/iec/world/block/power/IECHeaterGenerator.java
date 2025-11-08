@@ -1,4 +1,4 @@
-package iec.world.power;
+package iec.world.block.power;
 
 import arc.Core;
 import arc.math.Mathf;
