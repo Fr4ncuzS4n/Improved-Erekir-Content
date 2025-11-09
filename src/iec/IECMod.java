@@ -15,11 +15,11 @@ public class IECMod extends Mod{
             //show dialog upon startup
             Time.runTask(10f, () -> {
                 BaseDialog dialog = new BaseDialog("started");
-                dialog.cont.add("text.title").row();
+                /*dialog.cont.add("text.title").row();
                 //mod sprites are prefixed with the mod name (this mod is called 'example-java-mod' in its config)
                 dialog.cont.image(Core.atlas.find("iec-frog")).pad(20f).row();
                 dialog.cont.button("text.subtitle", dialog::hide).size(100f, 50f);
-                dialog.show();
+                dialog.show();*/
             });
         });
     }

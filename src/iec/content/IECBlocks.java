@@ -23,7 +23,7 @@ import static mindustry.type.ItemStack.*;
 public class IECBlocks{
     public static Block
             //Production - Erekir
-            destroyerCliff, berylliumDrill, hydrolyzer, ozonelyzer, ozoneVentCondenser, hydrogenVentCondenser, heaterGenerator,
+            destroyerCliff, berylliumDrill, hydrolyzer, ozonelyzer, ozoneCondenser, hydrogenCondenser, heaterGenerator,
 
             //Floor – Attributes
             hydroVent, ozoneVent;
@@ -155,7 +155,7 @@ public class IECBlocks{
             liquidOutputDirections = new int[]{1};
         }};
 
-        ozoneVentCondenser = new AttributeCrafter("ozone-vent-condenser"){{
+        ozoneCondenser = new AttributeCrafter("ozone-condenser"){{
             requirements(Category.production, with(Items.beryllium, 145));
             attribute = Attribute.steam;
             group = BlockGroup.liquids;
@@ -182,7 +182,7 @@ public class IECBlocks{
             liquidCapacity = 60f;
         }};
 
-        hydrogenVentCondenser = new AttributeCrafter("hydrogen-vent-condenser"){{
+        hydrogenCondenser = new AttributeCrafter("hydrogen-condenser"){{
             requirements(Category.production, with(Items.beryllium, 145));
             attribute = Attribute.steam;
             group = BlockGroup.liquids;
@@ -215,7 +215,8 @@ public class IECBlocks{
             size = 5;
         }};
 
-        Blocks.shipRefabricator = new Reconstructor("ship-fabricator"){{
+        /*Blocks.shipRefabricator.requirements(Category.units, BuildVisibility.shown, with(Items.beryllium, 250, Items.tungsten, 120, Items.silicon, 150, Items.oxide, 15));
+        Blocks.shipRefabricator = new Reconstructor(Blocks.shipRefabricator.name){{
             requirements(Category.units, with(Items.beryllium, 250, Items.tungsten, 120, Items.silicon, 150, Items.oxide, 15));
             regionSuffix = "-dark";
 
@@ -226,13 +227,13 @@ public class IECBlocks{
 
             constructTime = 60f * 50f;
 
-            // IT WORKS!!
+            //IT WORKS!!
             upgrades = Seq.with(
                     new UnitType[]{UnitTypes.elude, UnitTypes.avert},
                     new UnitType[]{UnitTypes.stell, UnitTypes.avert}
             );
 
             researchCost = with(Items.beryllium, 500, Items.tungsten, 200, Items.silicon, 300, Items.oxide, 80);
-        }};
+        }};*/
     }
 }
